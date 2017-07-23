@@ -89,8 +89,9 @@
             this.pbAuthorAvatar = new System.Windows.Forms.URLContextPicturebox();
             this.dtpTimestamp = new System.Windows.Forms.DateTimePicker();
             this.tpWebhook = new System.Windows.Forms.TabPage();
-            this.bPasteRAW = new System.Windows.Forms.PasteButton();
+            this.bCopyRAW = new System.Windows.Forms.CopyButton();
             this.tbRAW = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.bPasteRAW = new System.Windows.Forms.PasteButton();
             this.bExportHook = new System.Windows.Forms.Button();
             this.cbForDiscord = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -105,7 +106,6 @@
             this.bCreatePreset = new System.Windows.Forms.Button();
             this.bRemovePreset = new System.Windows.Forms.Button();
             this.bEditPresetName = new System.Windows.Forms.Button();
-            this.bCopyRAW = new System.Windows.Forms.CopyButton();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -939,23 +939,24 @@
             this.tpWebhook.Text = "Импорт-экспорт";
             this.tpWebhook.UseVisualStyleBackColor = true;
             // 
-            // bPasteRAW
+            // bCopyRAW
             // 
-            this.bPasteRAW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bPasteRAW.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.bPasteRAW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bPasteRAW.Font = new System.Drawing.Font("Verdana", 9.75F);
-            this.bPasteRAW.ForeColor = System.Drawing.Color.DarkGreen;
-            this.bPasteRAW.ImageIndex = 2;
-            this.bPasteRAW.ImageList = this.ilButtons;
-            this.bPasteRAW.Location = new System.Drawing.Point(902, 544);
-            this.bPasteRAW.Name = "bPasteRAW";
-            this.bPasteRAW.Size = new System.Drawing.Size(113, 28);
-            this.bPasteRAW.TabIndex = 26;
-            this.bPasteRAW.Text = "Вставить";
-            this.bPasteRAW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bPasteRAW.UseVisualStyleBackColor = false;
-            this.bPasteRAW.ZContextControl = this.tbRAW;
+            this.bCopyRAW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bCopyRAW.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.bCopyRAW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bCopyRAW.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bCopyRAW.ForeColor = System.Drawing.Color.DarkGreen;
+            this.bCopyRAW.ImageKey = "ClipboardCopy.png";
+            this.bCopyRAW.ImageList = this.ilButtons;
+            this.bCopyRAW.Location = new System.Drawing.Point(783, 544);
+            this.bCopyRAW.Name = "bCopyRAW";
+            this.bCopyRAW.Size = new System.Drawing.Size(113, 28);
+            this.bCopyRAW.TabIndex = 27;
+            this.bCopyRAW.Text = "Копировать";
+            this.bCopyRAW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bCopyRAW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bCopyRAW.UseVisualStyleBackColor = false;
+            this.bCopyRAW.ZContextControl = this.tbRAW;
             // 
             // tbRAW
             // 
@@ -974,7 +975,7 @@
         '\'',
         '\''};
             this.tbRAW.AutoIndentCharsPatterns = "\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\n";
-            this.tbRAW.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.tbRAW.AutoScrollMinSize = new System.Drawing.Size(2, 14);
             this.tbRAW.BackBrush = null;
             this.tbRAW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbRAW.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
@@ -982,6 +983,7 @@
             this.tbRAW.CharWidth = 8;
             this.tbRAW.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbRAW.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.tbRAW.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.tbRAW.IsReplaceMode = false;
             this.tbRAW.Language = FastColoredTextBoxNS.Language.JS;
             this.tbRAW.LeftBracket = '(';
@@ -996,6 +998,24 @@
             this.tbRAW.Size = new System.Drawing.Size(1138, 512);
             this.tbRAW.TabIndex = 14;
             this.tbRAW.Zoom = 100;
+            // 
+            // bPasteRAW
+            // 
+            this.bPasteRAW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bPasteRAW.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.bPasteRAW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bPasteRAW.Font = new System.Drawing.Font("Verdana", 9.75F);
+            this.bPasteRAW.ForeColor = System.Drawing.Color.DarkGreen;
+            this.bPasteRAW.ImageIndex = 2;
+            this.bPasteRAW.ImageList = this.ilButtons;
+            this.bPasteRAW.Location = new System.Drawing.Point(902, 544);
+            this.bPasteRAW.Name = "bPasteRAW";
+            this.bPasteRAW.Size = new System.Drawing.Size(113, 28);
+            this.bPasteRAW.TabIndex = 26;
+            this.bPasteRAW.Text = "Вставить";
+            this.bPasteRAW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bPasteRAW.UseVisualStyleBackColor = false;
+            this.bPasteRAW.ZContextControl = this.tbRAW;
             // 
             // bExportHook
             // 
@@ -1209,25 +1229,6 @@
             this.bEditPresetName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bEditPresetName.UseVisualStyleBackColor = false;
             this.bEditPresetName.Click += new System.EventHandler(this.bEditName_Click);
-            // 
-            // bCopyRAW
-            // 
-            this.bCopyRAW.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bCopyRAW.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.bCopyRAW.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bCopyRAW.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bCopyRAW.ForeColor = System.Drawing.Color.DarkGreen;
-            this.bCopyRAW.ImageKey = "ClipboardCopy.png";
-            this.bCopyRAW.ImageList = this.ilButtons;
-            this.bCopyRAW.Location = new System.Drawing.Point(783, 544);
-            this.bCopyRAW.Name = "bCopyRAW";
-            this.bCopyRAW.Size = new System.Drawing.Size(113, 28);
-            this.bCopyRAW.TabIndex = 27;
-            this.bCopyRAW.Text = "Копировать";
-            this.bCopyRAW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bCopyRAW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bCopyRAW.UseVisualStyleBackColor = false;
-            this.bCopyRAW.ZContextControl = this.tbRAW;
             // 
             // Form1
             // 

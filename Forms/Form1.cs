@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -113,7 +112,7 @@ namespace SupremeDiscordMessage
             if (webhookDescController.Current == null)
                 return;
             cbWebhooks.SelectedItem = webhookDescController.Current;
-            tbFullWebhook.Text = webhookDescController.Current.WebhookURL ?? tbFullWebhook.Text;
+            tbFullWebhook.Text = webhookDescController.Current.WebhookURL;
         }
 
         private void presetsController_CurrentChanged()
@@ -121,22 +120,21 @@ namespace SupremeDiscordMessage
             if (presetsController.Current == null)
                 return;
             cbPresets.SelectedItem = presetsController.Current;
-            tbSenderName.Text = presetsController.Current.SenderName ?? tbSenderName.Text;
-            tbSenderAvatarUrl.Text = presetsController.Current.SenderAvatarURL ?? tbSenderAvatarUrl.Text;
-            if (presetsController.Current.Text != null)
-                tbBodyMessage.Text = presetsController.Current.Text;
+            tbSenderName.Text = presetsController.Current.SenderName;
+            tbSenderAvatarUrl.Text = presetsController.Current.SenderAvatarURL;
+            tbBodyMessage.Text = presetsController.Current.Text;
             if (presetsController.Current.ColorARGB.HasValue)
                 pColor.BackColor = Color.FromArgb(presetsController.Current.ColorARGB.Value);
-            cbUseColor.Checked = presetsController.Current.IsUseColor ?? cbUseColor.Checked;
-            tbTitle.Text = presetsController.Current.Title ?? tbTitle.Text;
-            tbThumbnailUrl.Text = presetsController.Current.ThumbnailURL ?? tbThumbnailUrl.Text;
-            tbImageUrl.Text = presetsController.Current.ImageURL ?? tbImageUrl.Text;
-            tbLink.Text = presetsController.Current.Link ?? tbLink.Text;
-            tbAuthorName.Text = presetsController.Current.AuthorName ?? tbAuthorName.Text;
-            tbAuthorAvatarUrl.Text = presetsController.Current.AuthorAvatarURL ?? tbAuthorAvatarUrl.Text;
-            tbAuthorLink.Text = presetsController.Current.AuthorLink ?? tbAuthorLink.Text;
-            tbFooterText.Text = presetsController.Current.FooterText ?? tbFooterText.Text;
-            tbFooterIconUrl.Text = presetsController.Current.FooterURLIcon ?? tbFooterIconUrl.Text;
+            cbUseColor.Checked = presetsController.Current.IsUseColor ?? true;
+            tbTitle.Text = presetsController.Current.Title;
+            tbThumbnailUrl.Text = presetsController.Current.ThumbnailURL;
+            tbImageUrl.Text = presetsController.Current.ImageURL;
+            tbLink.Text = presetsController.Current.Link;
+            tbAuthorName.Text = presetsController.Current.AuthorName;
+            tbAuthorAvatarUrl.Text = presetsController.Current.AuthorAvatarURL;
+            tbAuthorLink.Text = presetsController.Current.AuthorLink;
+            tbFooterText.Text = presetsController.Current.FooterText;
+            tbFooterIconUrl.Text = presetsController.Current.FooterURLIcon;
             if (presetsController.Current.Timestamp.HasValue)
             {
                 dtpTimestamp.Checked = true;
@@ -178,7 +176,6 @@ namespace SupremeDiscordMessage
         private void tbSenderAvatarUrl_TextChanged(object sender, EventArgs e)
         {
             presetsController.Current.SenderAvatarURL = tbSenderAvatarUrl.Text;
-
         }
 
         private void tbBodyMessage_TextChanged(object sender, EventArgs e)
@@ -381,7 +378,8 @@ namespace SupremeDiscordMessage
 
         private void bExportCurrentPreset_Click(object sender, EventArgs e)
         {
-            var res = JsonConvert.SerializeObject(presetsController.Current, Formatting.Indented);
+            var res = JsonConvert.SerializeObject(presetsController.Current, Formatting.Indented, 
+                new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;
@@ -389,7 +387,8 @@ namespace SupremeDiscordMessage
 
         private void bExportAllPresets_Click(object sender, EventArgs e)
         {
-            var res = JsonConvert.SerializeObject(presetsController.Items, Formatting.Indented);
+            var res = JsonConvert.SerializeObject(presetsController.Items, Formatting.Indented,
+                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;
@@ -397,7 +396,8 @@ namespace SupremeDiscordMessage
 
         private void bExportHook_Click(object sender, EventArgs e)
         {
-            var res = JsonConvert.SerializeObject(webhookDescController.Current, Formatting.Indented);
+            var res = JsonConvert.SerializeObject(webhookDescController.Current, Formatting.Indented,
+                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;
@@ -405,7 +405,8 @@ namespace SupremeDiscordMessage
 
         private void bExportAllHooks_Click(object sender, EventArgs e)
         {
-            var res = JsonConvert.SerializeObject(webhookDescController.Items, Formatting.Indented);
+            var res = JsonConvert.SerializeObject(webhookDescController.Items, Formatting.Indented,
+                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;

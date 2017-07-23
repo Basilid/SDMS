@@ -49,7 +49,8 @@ namespace SupremeDiscordMessage
         public void SaveToFile(string path)
         {
             Directory.CreateDirectory(Path.GetDirectoryName(path));
-            File.WriteAllText(path, JsonConvert.SerializeObject(Items, Formatting.Indented));
+            File.WriteAllText(path, JsonConvert.SerializeObject(Items, Formatting.Indented,
+                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver()}));
         }
 
         public IEnumerator<T> GetEnumerator()

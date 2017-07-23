@@ -66,6 +66,8 @@
     <Compile Include="Forms\Controls\DateTimePicker.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="EmptyToNullStringResolver.cs" />
+    <Compile Include="EmptyToNullStringValueProvider.cs" />
     <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
