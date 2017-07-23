@@ -127,7 +127,7 @@
             this.tbFullWebhook.Location = new System.Drawing.Point(46, 101);
             this.tbFullWebhook.Name = "tbFullWebhook";
             this.tbFullWebhook.Size = new System.Drawing.Size(371, 27);
-            this.tbFullWebhook.TabIndex = 0;
+            this.tbFullWebhook.TabIndex = 112;
             this.tbFullWebhook.TextChanged += new System.EventHandler(this.tbFullWebhook_TextChanged_1);
             // 
             // tbSenderName
@@ -138,8 +138,8 @@
             this.tbSenderName.Cue = "Ник отправителя";
             this.tbSenderName.Location = new System.Drawing.Point(90, 32);
             this.tbSenderName.Name = "tbSenderName";
-            this.tbSenderName.Size = new System.Drawing.Size(1048, 20);
-            this.tbSenderName.TabIndex = 0;
+            this.tbSenderName.Size = new System.Drawing.Size(997, 20);
+            this.tbSenderName.TabIndex = 2;
             this.tbSenderName.TextChanged += new System.EventHandler(this.tbSenderName_TextChanged);
             // 
             // tbSenderAvatarUrl
@@ -152,8 +152,8 @@
             this.tbSenderAvatarUrl.ForeColor = System.Drawing.SystemColors.Highlight;
             this.tbSenderAvatarUrl.Location = new System.Drawing.Point(125, 86);
             this.tbSenderAvatarUrl.Name = "tbSenderAvatarUrl";
-            this.tbSenderAvatarUrl.Size = new System.Drawing.Size(1013, 20);
-            this.tbSenderAvatarUrl.TabIndex = 0;
+            this.tbSenderAvatarUrl.Size = new System.Drawing.Size(962, 20);
+            this.tbSenderAvatarUrl.TabIndex = 3;
             this.tbSenderAvatarUrl.TextChanged += new System.EventHandler(this.tbSenderAvatarUrl_TextChanged);
             // 
             // tbBodyMessage
@@ -166,8 +166,8 @@
             this.tbBodyMessage.Multiline = true;
             this.tbBodyMessage.Name = "tbBodyMessage";
             this.tbBodyMessage.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbBodyMessage.Size = new System.Drawing.Size(1118, 335);
-            this.tbBodyMessage.TabIndex = 0;
+            this.tbBodyMessage.Size = new System.Drawing.Size(1061, 329);
+            this.tbBodyMessage.TabIndex = 4;
             this.tbBodyMessage.TextChanged += new System.EventHandler(this.tbBodyMessage_TextChanged);
             // 
             // bSend
@@ -177,10 +177,10 @@
             this.bSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bSend.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bSend.ForeColor = System.Drawing.Color.DarkGreen;
-            this.bSend.Location = new System.Drawing.Point(1029, 675);
+            this.bSend.Location = new System.Drawing.Point(976, 700);
             this.bSend.Name = "bSend";
             this.bSend.Size = new System.Drawing.Size(137, 28);
-            this.bSend.TabIndex = 12;
+            this.bSend.TabIndex = 6;
             this.bSend.Text = "Отправить!";
             this.bSend.UseVisualStyleBackColor = false;
             this.bSend.Click += new System.EventHandler(this.bSend_Click);
@@ -192,7 +192,7 @@
             this.pColor.BackColor = System.Drawing.SystemColors.HotTrack;
             this.pColor.Location = new System.Drawing.Point(7, 149);
             this.pColor.Name = "pColor";
-            this.pColor.Size = new System.Drawing.Size(13, 321);
+            this.pColor.Size = new System.Drawing.Size(13, 315);
             this.pColor.TabIndex = 13;
             this.pColor.BackColorChanged += new System.EventHandler(this.pColor_BackColorChanged);
             this.pColor.Click += new System.EventHandler(this.panel1_Click);
@@ -205,10 +205,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tpMisc);
             this.tabControl1.Controls.Add(this.tpWebhook);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 43);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1158, 657);
+            this.tabControl1.Size = new System.Drawing.Size(1101, 651);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
@@ -227,7 +227,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1150, 626);
+            this.tabPage1.Size = new System.Drawing.Size(1093, 620);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Сообщение";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@
             this.pasteButton8.Location = new System.Drawing.Point(90, 82);
             this.pasteButton8.Name = "pasteButton8";
             this.pasteButton8.Size = new System.Drawing.Size(28, 28);
-            this.pasteButton8.TabIndex = 31;
+            this.pasteButton8.TabIndex = 105;
             this.pasteButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.pasteButton8.UseVisualStyleBackColor = false;
             this.pasteButton8.ZContextControl = this.tbSenderAvatarUrl;
@@ -275,9 +275,9 @@
             this.groupBox3.Controls.Add(this.bDuplicateChannel);
             this.groupBox3.Controls.Add(this.tbFullWebhook);
             this.groupBox3.Controls.Add(this.bCopyWebhook);
-            this.groupBox3.Location = new System.Drawing.Point(6, 476);
+            this.groupBox3.Location = new System.Drawing.Point(6, 470);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1138, 144);
+            this.groupBox3.Size = new System.Drawing.Size(1166, 144);
             this.groupBox3.TabIndex = 30;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Канал";
@@ -292,8 +292,8 @@
             this.cbWebhooks.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.cbWebhooks.Location = new System.Drawing.Point(12, 43);
             this.cbWebhooks.Name = "cbWebhooks";
-            this.cbWebhooks.Size = new System.Drawing.Size(439, 26);
-            this.cbWebhooks.TabIndex = 27;
+            this.cbWebhooks.Size = new System.Drawing.Size(467, 26);
+            this.cbWebhooks.TabIndex = 5;
             this.cbWebhooks.SelectedValueChanged += new System.EventHandler(this.cbWebhooks_SelectedValueChanged);
             // 
             // bRemoveChannel
@@ -305,10 +305,10 @@
             this.bRemoveChannel.ForeColor = System.Drawing.Color.DarkGreen;
             this.bRemoveChannel.ImageKey = "remove.png";
             this.bRemoveChannel.ImageList = this.ilButtons;
-            this.bRemoveChannel.Location = new System.Drawing.Point(695, 42);
+            this.bRemoveChannel.Location = new System.Drawing.Point(723, 42);
             this.bRemoveChannel.Name = "bRemoveChannel";
             this.bRemoveChannel.Size = new System.Drawing.Size(28, 28);
-            this.bRemoveChannel.TabIndex = 29;
+            this.bRemoveChannel.TabIndex = 109;
             this.bRemoveChannel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bRemoveChannel.UseVisualStyleBackColor = false;
             this.bRemoveChannel.Click += new System.EventHandler(this.bRemoveChannel_Click);
@@ -322,7 +322,7 @@
             this.pasteButton7.Location = new System.Drawing.Point(12, 100);
             this.pasteButton7.Name = "pasteButton7";
             this.pasteButton7.Size = new System.Drawing.Size(28, 28);
-            this.pasteButton7.TabIndex = 26;
+            this.pasteButton7.TabIndex = 110;
             this.pasteButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.pasteButton7.UseVisualStyleBackColor = false;
             this.pasteButton7.ZContextControl = this.tbFullWebhook;
@@ -336,10 +336,10 @@
             this.bCreateChannel.ForeColor = System.Drawing.Color.DarkGreen;
             this.bCreateChannel.ImageKey = "add.png";
             this.bCreateChannel.ImageList = this.ilButtons;
-            this.bCreateChannel.Location = new System.Drawing.Point(457, 42);
+            this.bCreateChannel.Location = new System.Drawing.Point(485, 42);
             this.bCreateChannel.Name = "bCreateChannel";
             this.bCreateChannel.Size = new System.Drawing.Size(28, 28);
-            this.bCreateChannel.TabIndex = 12;
+            this.bCreateChannel.TabIndex = 106;
             this.bCreateChannel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bCreateChannel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bCreateChannel.UseVisualStyleBackColor = false;
@@ -365,10 +365,10 @@
             this.bEditChannelName.ForeColor = System.Drawing.Color.DarkGreen;
             this.bEditChannelName.ImageKey = "edit.png";
             this.bEditChannelName.ImageList = this.ilButtons;
-            this.bEditChannelName.Location = new System.Drawing.Point(623, 42);
+            this.bEditChannelName.Location = new System.Drawing.Point(651, 42);
             this.bEditChannelName.Name = "bEditChannelName";
             this.bEditChannelName.Size = new System.Drawing.Size(66, 28);
-            this.bEditChannelName.TabIndex = 12;
+            this.bEditChannelName.TabIndex = 108;
             this.bEditChannelName.Text = "Имя";
             this.bEditChannelName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bEditChannelName.UseVisualStyleBackColor = false;
@@ -394,10 +394,10 @@
             this.bDuplicateChannel.ForeColor = System.Drawing.Color.DarkGreen;
             this.bDuplicateChannel.ImageKey = "copy.png";
             this.bDuplicateChannel.ImageList = this.ilButtons;
-            this.bDuplicateChannel.Location = new System.Drawing.Point(491, 42);
+            this.bDuplicateChannel.Location = new System.Drawing.Point(519, 42);
             this.bDuplicateChannel.Name = "bDuplicateChannel";
             this.bDuplicateChannel.Size = new System.Drawing.Size(126, 28);
-            this.bDuplicateChannel.TabIndex = 12;
+            this.bDuplicateChannel.TabIndex = 107;
             this.bDuplicateChannel.Text = "Дублировать";
             this.bDuplicateChannel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bDuplicateChannel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -415,7 +415,7 @@
             this.bCopyWebhook.Location = new System.Drawing.Point(423, 101);
             this.bCopyWebhook.Name = "bCopyWebhook";
             this.bCopyWebhook.Size = new System.Drawing.Size(113, 28);
-            this.bCopyWebhook.TabIndex = 12;
+            this.bCopyWebhook.TabIndex = 111;
             this.bCopyWebhook.Text = "Копировать";
             this.bCopyWebhook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bCopyWebhook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -503,7 +503,7 @@
             this.tpMisc.Location = new System.Drawing.Point(4, 27);
             this.tpMisc.Name = "tpMisc";
             this.tpMisc.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMisc.Size = new System.Drawing.Size(1150, 626);
+            this.tpMisc.Size = new System.Drawing.Size(1093, 620);
             this.tpMisc.TabIndex = 2;
             this.tpMisc.Text = "Дополнительно";
             this.tpMisc.UseVisualStyleBackColor = true;
@@ -530,7 +530,7 @@
             this.tbThumbnailUrl.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tbThumbnailUrl.Location = new System.Drawing.Point(125, 86);
             this.tbThumbnailUrl.Name = "tbThumbnailUrl";
-            this.tbThumbnailUrl.Size = new System.Drawing.Size(1013, 20);
+            this.tbThumbnailUrl.Size = new System.Drawing.Size(952, 20);
             this.tbThumbnailUrl.TabIndex = 2;
             this.tbThumbnailUrl.TextChanged += new System.EventHandler(this.tbThumbnailUrl_TextChanged);
             // 
@@ -558,8 +558,8 @@
             this.tbLink.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tbLink.Location = new System.Drawing.Point(125, 190);
             this.tbLink.Name = "tbLink";
-            this.tbLink.Size = new System.Drawing.Size(1013, 20);
-            this.tbLink.TabIndex = 2;
+            this.tbLink.Size = new System.Drawing.Size(952, 20);
+            this.tbLink.TabIndex = 4;
             this.tbLink.TextChanged += new System.EventHandler(this.tbLink_TextChanged);
             // 
             // pasteButton2
@@ -586,8 +586,8 @@
             this.tbImageUrl.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tbImageUrl.Location = new System.Drawing.Point(125, 138);
             this.tbImageUrl.Name = "tbImageUrl";
-            this.tbImageUrl.Size = new System.Drawing.Size(1013, 20);
-            this.tbImageUrl.TabIndex = 2;
+            this.tbImageUrl.Size = new System.Drawing.Size(952, 20);
+            this.tbImageUrl.TabIndex = 3;
             this.tbImageUrl.TextChanged += new System.EventHandler(this.tbImageUrl_TextChanged);
             // 
             // pasteButton1
@@ -624,7 +624,7 @@
             this.tbTitle.Cue = "Заголовок";
             this.tbTitle.Location = new System.Drawing.Point(90, 32);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(1048, 20);
+            this.tbTitle.Size = new System.Drawing.Size(987, 20);
             this.tbTitle.TabIndex = 1;
             this.tbTitle.TextChanged += new System.EventHandler(this.tbTitle_TextChanged);
             // 
@@ -689,7 +689,7 @@
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(2, 417);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1147, 137);
+            this.groupBox2.Size = new System.Drawing.Size(1086, 137);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Нижний колонтитул";
@@ -718,8 +718,8 @@
             this.tbFooterIconUrl.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tbFooterIconUrl.Location = new System.Drawing.Point(125, 99);
             this.tbFooterIconUrl.Name = "tbFooterIconUrl";
-            this.tbFooterIconUrl.Size = new System.Drawing.Size(1013, 20);
-            this.tbFooterIconUrl.TabIndex = 2;
+            this.tbFooterIconUrl.Size = new System.Drawing.Size(952, 20);
+            this.tbFooterIconUrl.TabIndex = 9;
             this.tbFooterIconUrl.TextChanged += new System.EventHandler(this.tbFooterIconUrl_TextChanged);
             // 
             // contextLabel5
@@ -754,8 +754,8 @@
             this.tbFooterText.Cue = "Текст (обязательное для колонтитула)";
             this.tbFooterText.Location = new System.Drawing.Point(90, 44);
             this.tbFooterText.Name = "tbFooterText";
-            this.tbFooterText.Size = new System.Drawing.Size(1048, 20);
-            this.tbFooterText.TabIndex = 1;
+            this.tbFooterText.Size = new System.Drawing.Size(987, 20);
+            this.tbFooterText.TabIndex = 8;
             this.tbFooterText.TextChanged += new System.EventHandler(this.tbFooterText_TextChanged);
             // 
             // pbFooterIcon
@@ -786,7 +786,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(0, 221);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1147, 190);
+            this.groupBox1.Size = new System.Drawing.Size(1086, 190);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Автор";
@@ -815,8 +815,8 @@
             this.tbAuthorLink.ForeColor = System.Drawing.SystemColors.Highlight;
             this.tbAuthorLink.Location = new System.Drawing.Point(125, 150);
             this.tbAuthorLink.Name = "tbAuthorLink";
-            this.tbAuthorLink.Size = new System.Drawing.Size(944, 20);
-            this.tbAuthorLink.TabIndex = 2;
+            this.tbAuthorLink.Size = new System.Drawing.Size(883, 20);
+            this.tbAuthorLink.TabIndex = 7;
             this.tbAuthorLink.TextChanged += new System.EventHandler(this.tbAuthorLink_TextChanged);
             // 
             // pasteButton4
@@ -843,8 +843,8 @@
             this.tbAuthorAvatarUrl.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.tbAuthorAvatarUrl.Location = new System.Drawing.Point(125, 99);
             this.tbAuthorAvatarUrl.Name = "tbAuthorAvatarUrl";
-            this.tbAuthorAvatarUrl.Size = new System.Drawing.Size(1013, 20);
-            this.tbAuthorAvatarUrl.TabIndex = 2;
+            this.tbAuthorAvatarUrl.Size = new System.Drawing.Size(952, 20);
+            this.tbAuthorAvatarUrl.TabIndex = 6;
             this.tbAuthorAvatarUrl.TextChanged += new System.EventHandler(this.tbAuthorAvatarUrl_TextChanged);
             // 
             // contextLabel8
@@ -891,8 +891,8 @@
             this.tbAuthorName.Cue = "Имя (обязательное для автора)";
             this.tbAuthorName.Location = new System.Drawing.Point(90, 44);
             this.tbAuthorName.Name = "tbAuthorName";
-            this.tbAuthorName.Size = new System.Drawing.Size(1048, 20);
-            this.tbAuthorName.TabIndex = 1;
+            this.tbAuthorName.Size = new System.Drawing.Size(987, 20);
+            this.tbAuthorName.TabIndex = 5;
             this.tbAuthorName.TextChanged += new System.EventHandler(this.tbAuthorName_TextChanged);
             // 
             // pbAuthorAvatar
@@ -916,7 +916,7 @@
             this.dtpTimestamp.Name = "dtpTimestamp";
             this.dtpTimestamp.ShowCheckBox = true;
             this.dtpTimestamp.Size = new System.Drawing.Size(327, 27);
-            this.dtpTimestamp.TabIndex = 13;
+            this.dtpTimestamp.TabIndex = 10;
             this.dtpTimestamp.ValueChanged += new System.EventHandler(this.dtpTimestamp_ValueChanged);
             // 
             // tpWebhook
@@ -934,7 +934,7 @@
             this.tpWebhook.Location = new System.Drawing.Point(4, 27);
             this.tpWebhook.Name = "tpWebhook";
             this.tpWebhook.Padding = new System.Windows.Forms.Padding(3);
-            this.tpWebhook.Size = new System.Drawing.Size(1150, 626);
+            this.tpWebhook.Size = new System.Drawing.Size(1093, 620);
             this.tpWebhook.TabIndex = 1;
             this.tpWebhook.Text = "Импорт-экспорт";
             this.tpWebhook.UseVisualStyleBackColor = true;
@@ -948,10 +948,10 @@
             this.bCopyRAW.ForeColor = System.Drawing.Color.DarkGreen;
             this.bCopyRAW.ImageKey = "ClipboardCopy.png";
             this.bCopyRAW.ImageList = this.ilButtons;
-            this.bCopyRAW.Location = new System.Drawing.Point(783, 544);
+            this.bCopyRAW.Location = new System.Drawing.Point(726, 538);
             this.bCopyRAW.Name = "bCopyRAW";
             this.bCopyRAW.Size = new System.Drawing.Size(113, 28);
-            this.bCopyRAW.TabIndex = 27;
+            this.bCopyRAW.TabIndex = 4;
             this.bCopyRAW.Text = "Копировать";
             this.bCopyRAW.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bCopyRAW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -975,7 +975,7 @@
         '\'',
         '\''};
             this.tbRAW.AutoIndentCharsPatterns = "\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;]+);\n";
-            this.tbRAW.AutoScrollMinSize = new System.Drawing.Size(2, 14);
+            this.tbRAW.AutoScrollMinSize = new System.Drawing.Size(27, 14);
             this.tbRAW.BackBrush = null;
             this.tbRAW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbRAW.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
@@ -983,7 +983,6 @@
             this.tbRAW.CharWidth = 8;
             this.tbRAW.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.tbRAW.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
-            this.tbRAW.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.tbRAW.IsReplaceMode = false;
             this.tbRAW.Language = FastColoredTextBoxNS.Language.JS;
             this.tbRAW.LeftBracket = '(';
@@ -995,8 +994,8 @@
             this.tbRAW.RightBracket2 = '}';
             this.tbRAW.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.tbRAW.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("tbRAW.ServiceColors")));
-            this.tbRAW.Size = new System.Drawing.Size(1138, 512);
-            this.tbRAW.TabIndex = 14;
+            this.tbRAW.Size = new System.Drawing.Size(1081, 506);
+            this.tbRAW.TabIndex = 1;
             this.tbRAW.Zoom = 100;
             // 
             // bPasteRAW
@@ -1008,10 +1007,10 @@
             this.bPasteRAW.ForeColor = System.Drawing.Color.DarkGreen;
             this.bPasteRAW.ImageIndex = 2;
             this.bPasteRAW.ImageList = this.ilButtons;
-            this.bPasteRAW.Location = new System.Drawing.Point(902, 544);
+            this.bPasteRAW.Location = new System.Drawing.Point(845, 538);
             this.bPasteRAW.Name = "bPasteRAW";
             this.bPasteRAW.Size = new System.Drawing.Size(113, 28);
-            this.bPasteRAW.TabIndex = 26;
+            this.bPasteRAW.TabIndex = 5;
             this.bPasteRAW.Text = "Вставить";
             this.bPasteRAW.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bPasteRAW.UseVisualStyleBackColor = false;
@@ -1019,17 +1018,17 @@
             // 
             // bExportHook
             // 
-            this.bExportHook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bExportHook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bExportHook.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bExportHook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bExportHook.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bExportHook.ForeColor = System.Drawing.Color.Brown;
             this.bExportHook.ImageKey = "export.png";
             this.bExportHook.ImageList = this.ilButtons;
-            this.bExportHook.Location = new System.Drawing.Point(260, 572);
+            this.bExportHook.Location = new System.Drawing.Point(262, 566);
             this.bExportHook.Name = "bExportHook";
             this.bExportHook.Size = new System.Drawing.Size(110, 48);
-            this.bExportHook.TabIndex = 17;
+            this.bExportHook.TabIndex = 7;
             this.bExportHook.Text = "Экспорт канала";
             this.bExportHook.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bExportHook.UseVisualStyleBackColor = false;
@@ -1037,10 +1036,11 @@
             // 
             // cbForDiscord
             // 
+            this.cbForDiscord.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cbForDiscord.AutoSize = true;
             this.cbForDiscord.Checked = true;
             this.cbForDiscord.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbForDiscord.Location = new System.Drawing.Point(6, 544);
+            this.cbForDiscord.Location = new System.Drawing.Point(8, 538);
             this.cbForDiscord.Name = "cbForDiscord";
             this.cbForDiscord.Size = new System.Drawing.Size(195, 22);
             this.cbForDiscord.TabIndex = 16;
@@ -1060,17 +1060,17 @@
             // 
             // bExportAllHooks
             // 
-            this.bExportAllHooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bExportAllHooks.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bExportAllHooks.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bExportAllHooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bExportAllHooks.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bExportAllHooks.ForeColor = System.Drawing.Color.Brown;
             this.bExportAllHooks.ImageKey = "export.png";
             this.bExportAllHooks.ImageList = this.ilButtons;
-            this.bExportAllHooks.Location = new System.Drawing.Point(376, 572);
+            this.bExportAllHooks.Location = new System.Drawing.Point(378, 566);
             this.bExportAllHooks.Name = "bExportAllHooks";
             this.bExportAllHooks.Size = new System.Drawing.Size(134, 48);
-            this.bExportAllHooks.TabIndex = 12;
+            this.bExportAllHooks.TabIndex = 8;
             this.bExportAllHooks.Text = "Экспорт всех каналов";
             this.bExportAllHooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bExportAllHooks.UseVisualStyleBackColor = false;
@@ -1078,17 +1078,17 @@
             // 
             // bExportAllPresets
             // 
-            this.bExportAllPresets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bExportAllPresets.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bExportAllPresets.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bExportAllPresets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bExportAllPresets.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bExportAllPresets.ForeColor = System.Drawing.Color.DarkGreen;
             this.bExportAllPresets.ImageKey = "export.png";
             this.bExportAllPresets.ImageList = this.ilButtons;
-            this.bExportAllPresets.Location = new System.Drawing.Point(122, 572);
+            this.bExportAllPresets.Location = new System.Drawing.Point(124, 566);
             this.bExportAllPresets.Name = "bExportAllPresets";
             this.bExportAllPresets.Size = new System.Drawing.Size(132, 48);
-            this.bExportAllPresets.TabIndex = 12;
+            this.bExportAllPresets.TabIndex = 6;
             this.bExportAllPresets.Text = "Экспорт всех пресетов";
             this.bExportAllPresets.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bExportAllPresets.UseVisualStyleBackColor = false;
@@ -1096,17 +1096,17 @@
             // 
             // bExportCurrentPreset
             // 
-            this.bExportCurrentPreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bExportCurrentPreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.bExportCurrentPreset.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bExportCurrentPreset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bExportCurrentPreset.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bExportCurrentPreset.ForeColor = System.Drawing.Color.DarkGreen;
             this.bExportCurrentPreset.ImageKey = "export.png";
             this.bExportCurrentPreset.ImageList = this.ilButtons;
-            this.bExportCurrentPreset.Location = new System.Drawing.Point(6, 572);
+            this.bExportCurrentPreset.Location = new System.Drawing.Point(8, 566);
             this.bExportCurrentPreset.Name = "bExportCurrentPreset";
             this.bExportCurrentPreset.Size = new System.Drawing.Size(110, 48);
-            this.bExportCurrentPreset.TabIndex = 12;
+            this.bExportCurrentPreset.TabIndex = 3;
             this.bExportCurrentPreset.Text = "Экспорт пресета";
             this.bExportCurrentPreset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bExportCurrentPreset.UseVisualStyleBackColor = false;
@@ -1121,10 +1121,10 @@
             this.bImport.ForeColor = System.Drawing.Color.DarkGreen;
             this.bImport.ImageKey = "import.png";
             this.bImport.ImageList = this.ilButtons;
-            this.bImport.Location = new System.Drawing.Point(1051, 544);
+            this.bImport.Location = new System.Drawing.Point(994, 538);
             this.bImport.Name = "bImport";
             this.bImport.Size = new System.Drawing.Size(93, 28);
-            this.bImport.TabIndex = 12;
+            this.bImport.TabIndex = 2;
             this.bImport.Text = "Импорт";
             this.bImport.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bImport.UseVisualStyleBackColor = false;
@@ -1138,22 +1138,19 @@
             // 
             // cbPresets
             // 
-            this.cbPresets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cbPresets.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPresets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbPresets.Location = new System.Drawing.Point(88, 677);
+            this.cbPresets.Location = new System.Drawing.Point(88, 7);
             this.cbPresets.Name = "cbPresets";
             this.cbPresets.Size = new System.Drawing.Size(428, 26);
-            this.cbPresets.TabIndex = 15;
+            this.cbPresets.TabIndex = 1;
             this.cbPresets.SelectedValueChanged += new System.EventHandler(this.cbPresets_SelectedValueChanged);
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label3.Location = new System.Drawing.Point(9, 680);
+            this.label3.Location = new System.Drawing.Point(9, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 18);
             this.label3.TabIndex = 11;
@@ -1161,17 +1158,16 @@
             // 
             // bDuplicatePreset
             // 
-            this.bDuplicatePreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bDuplicatePreset.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bDuplicatePreset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bDuplicatePreset.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bDuplicatePreset.ForeColor = System.Drawing.Color.DarkGreen;
             this.bDuplicatePreset.ImageKey = "copy.png";
             this.bDuplicatePreset.ImageList = this.ilButtons;
-            this.bDuplicatePreset.Location = new System.Drawing.Point(556, 676);
+            this.bDuplicatePreset.Location = new System.Drawing.Point(556, 6);
             this.bDuplicatePreset.Name = "bDuplicatePreset";
             this.bDuplicatePreset.Size = new System.Drawing.Size(126, 28);
-            this.bDuplicatePreset.TabIndex = 12;
+            this.bDuplicatePreset.TabIndex = 102;
             this.bDuplicatePreset.Text = "Дублировать";
             this.bDuplicatePreset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bDuplicatePreset.UseVisualStyleBackColor = false;
@@ -1179,17 +1175,16 @@
             // 
             // bCreatePreset
             // 
-            this.bCreatePreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bCreatePreset.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bCreatePreset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bCreatePreset.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bCreatePreset.ForeColor = System.Drawing.Color.DarkGreen;
             this.bCreatePreset.ImageKey = "add.png";
             this.bCreatePreset.ImageList = this.ilButtons;
-            this.bCreatePreset.Location = new System.Drawing.Point(522, 676);
+            this.bCreatePreset.Location = new System.Drawing.Point(522, 6);
             this.bCreatePreset.Name = "bCreatePreset";
             this.bCreatePreset.Size = new System.Drawing.Size(28, 28);
-            this.bCreatePreset.TabIndex = 12;
+            this.bCreatePreset.TabIndex = 101;
             this.bCreatePreset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bCreatePreset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bCreatePreset.UseVisualStyleBackColor = false;
@@ -1197,34 +1192,32 @@
             // 
             // bRemovePreset
             // 
-            this.bRemovePreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bRemovePreset.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bRemovePreset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bRemovePreset.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bRemovePreset.ForeColor = System.Drawing.Color.DarkGreen;
             this.bRemovePreset.ImageKey = "remove.png";
             this.bRemovePreset.ImageList = this.ilButtons;
-            this.bRemovePreset.Location = new System.Drawing.Point(760, 676);
+            this.bRemovePreset.Location = new System.Drawing.Point(760, 6);
             this.bRemovePreset.Name = "bRemovePreset";
             this.bRemovePreset.Size = new System.Drawing.Size(28, 28);
-            this.bRemovePreset.TabIndex = 30;
+            this.bRemovePreset.TabIndex = 104;
             this.bRemovePreset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bRemovePreset.UseVisualStyleBackColor = false;
             this.bRemovePreset.Click += new System.EventHandler(this.bRemovePreset_Click);
             // 
             // bEditPresetName
             // 
-            this.bEditPresetName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.bEditPresetName.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.bEditPresetName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bEditPresetName.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bEditPresetName.ForeColor = System.Drawing.Color.DarkGreen;
             this.bEditPresetName.ImageKey = "edit.png";
             this.bEditPresetName.ImageList = this.ilButtons;
-            this.bEditPresetName.Location = new System.Drawing.Point(688, 676);
+            this.bEditPresetName.Location = new System.Drawing.Point(688, 6);
             this.bEditPresetName.Name = "bEditPresetName";
             this.bEditPresetName.Size = new System.Drawing.Size(66, 28);
-            this.bEditPresetName.TabIndex = 12;
+            this.bEditPresetName.TabIndex = 103;
             this.bEditPresetName.Text = "Имя";
             this.bEditPresetName.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.bEditPresetName.UseVisualStyleBackColor = false;
@@ -1234,7 +1227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1174, 712);
+            this.ClientSize = new System.Drawing.Size(1121, 737);
             this.Controls.Add(this.bRemovePreset);
             this.Controls.Add(this.cbPresets);
             this.Controls.Add(this.tabControl1);
@@ -1245,6 +1238,7 @@
             this.Controls.Add(this.bSend);
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(963, 776);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Discord Supreme Message Sender v0.1 by ASiCorp";
