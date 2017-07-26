@@ -27,6 +27,7 @@ namespace SupremeDiscordMessage
         private string _footerURLIcon = "";
         private DateTime? _timestamp = DateTime.Now;
         private bool? _isUseColor = true;
+        private bool _isTimestamped;
 
         #endregion
 
@@ -211,7 +212,7 @@ namespace SupremeDiscordMessage
             }
         }
 
-        [JsonProperty]
+        [JsonProperty(NullValueHandling = NullValueHandling.Include)]
         public DateTime? Timestamp
         {
             get => _timestamp;

@@ -1,6 +1,6 @@
 ﻿namespace SupremeDiscordMessage
 {
-    partial class Form1
+    partial class frmMainSDMS
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMainSDMS));
             this.tbFullWebhook = new System.Windows.Forms.CueTextBoxURL();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.tbSenderName = new System.Windows.Forms.CueTextBox();
@@ -1223,7 +1223,7 @@
             this.bEditPresetName.UseVisualStyleBackColor = false;
             this.bEditPresetName.Click += new System.EventHandler(this.bEditName_Click);
             // 
-            // Form1
+            // frmMainSDMS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -1239,7 +1239,7 @@
             this.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(963, 776);
-            this.Name = "Form1";
+            this.Name = "frmMainSDMS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Discord Supreme Message Sender v0.1 by ASiCorp";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);

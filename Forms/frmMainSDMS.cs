@@ -1,29 +1,27 @@
 ﻿using System;
-using System.Collections;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using Discord;
+using Discord.Webhook;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SupremeDiscordMessage.Forms;
-using SupremeDiscordMessage.Properties;
-using Color = System.Drawing.Color;
-using Image = System.Drawing.Image;
 
 namespace SupremeDiscordMessage
 {
-    public partial class Form1 : Form
+    public partial class frmMainSDMS : Form
     {
-        public Form1()
+        private readonly PresetsController presetsController = new PresetsController();
+
+        private readonly Regex regexWebhook
+            = new Regex(@"https:\/\/discordapp\.com\/api\/webhooks\/([0-9]+)\/([a-zA-Z0-9-_]+)");
+
+        private readonly WebhookDescControlller webhookDescController = new WebhookDescControlller();
+
+        public frmMainSDMS()
         {
             InitializeComponent();
         }
@@ -39,13 +37,13 @@ namespace SupremeDiscordMessage
             var match = regexWebhook.Match(tbFullWebhook.Text);
             if (!match.Success)
                 return;
-            var hook = new Discord.Webhook.DiscordWebhookClient(ulong.Parse(match.Groups[1].Value), match.Groups[2].Value);
+            var hook = new DiscordWebhookClient(ulong.Parse(match.Groups[1].Value), match.Groups[2].Value);
 
             var embed = new EmbedBuilder();
             embed.WithDescription(tbBodyMessage.Text);
-            int cnt = 0;
+            var cnt = 0;
             if (cbUseColor.Checked && ++cnt > 0)
-                embed.WithColor(new Discord.Color(pColor.BackColor.R, pColor.BackColor.G, pColor.BackColor.B));
+                embed.WithColor(new Color(pColor.BackColor.R, pColor.BackColor.G, pColor.BackColor.B));
             if (!string.IsNullOrEmpty(tbTitle.Text) && ++cnt > 0)
                 embed.WithTitle(tbTitle.Text);
             if (!string.IsNullOrEmpty(tbThumbnailUrl.Text) && ++cnt > 0)
@@ -64,17 +62,16 @@ namespace SupremeDiscordMessage
                 embed.WithFooter(tbFooterText.Text
                     , !string.IsNullOrEmpty(tbFooterIconUrl.Text) ? tbFooterIconUrl.Text : null);
             if (cnt > 0)
-                await hook.SendMessageAsync("", false, new[] { embed.Build() }, tbSenderName.Text, tbSenderAvatarUrl.Text);
+                await hook.SendMessageAsync("", false, new[] { embed.Build() }, tbSenderName.Text,
+                    tbSenderAvatarUrl.Text);
             else
                 await hook.SendMessageAsync(tbBodyMessage.Text, false, null, tbSenderName.Text, tbSenderAvatarUrl.Text);
         }
 
-        private readonly Regex regexWebhook
-            = new Regex(@"https:\/\/discordapp\.com\/api\/webhooks\/([0-9]+)\/([a-zA-Z0-9-_]+)");
-
         private void Form1_Shown(object sender, EventArgs e)
         {
-            presetsController.LoadFromFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC","SDMS", "presets.json"));
+            presetsController.LoadFromFile(Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS", "presets.json"));
             if (presetsController.Count == 0)
             {
                 var pr = new Preset
@@ -88,18 +85,21 @@ namespace SupremeDiscordMessage
             foreach (var preset in presetsController.Items)
                 preset.IsChanged = false;
             presetsController.CurrentChanged += presetsController_CurrentChanged;
-            var curPre = presetsController.Current = presetsController.FirstOrDefault(s => s.IsCurrent) ?? presetsController[0];
+            var curPre = presetsController.Current = presetsController.FirstOrDefault(s => s.IsCurrent) ??
+                                                     presetsController[0];
             cbPresets.DataSource = presetsController.Items;
             cbPresets.SelectedItem = curPre;
 
 
-            webhookDescController.LoadFromFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS", "channels.json"));
+            webhookDescController.LoadFromFile(Path.Combine(
+                Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS", "channels.json"));
             if (webhookDescController.Count == 0)
                 webhookDescController.Add(new WebhookDesc { Name = "#general", IsCurrent = true });
             foreach (var hook in webhookDescController)
                 hook.IsChanged = false;
             webhookDescController.CurrentChanged += WebhookDescControllerOnCurrentChanged;
-            var curHook = webhookDescController.Current = webhookDescController.FirstOrDefault(s => s.IsCurrent) ?? webhookDescController[0];
+            var curHook = webhookDescController.Current = webhookDescController.FirstOrDefault(s => s.IsCurrent) ??
+                                                          webhookDescController[0];
             cbWebhooks.DataSource = webhookDescController.Items;
             cbWebhooks.SelectedItem = curHook;
 
@@ -124,7 +124,7 @@ namespace SupremeDiscordMessage
             tbSenderAvatarUrl.Text = presetsController.Current.SenderAvatarURL;
             tbBodyMessage.Text = presetsController.Current.Text;
             if (presetsController.Current.ColorARGB.HasValue)
-                pColor.BackColor = Color.FromArgb(presetsController.Current.ColorARGB.Value);
+                pColor.BackColor = System.Drawing.Color.FromArgb(presetsController.Current.ColorARGB.Value);
             cbUseColor.Checked = presetsController.Current.IsUseColor ?? true;
             tbTitle.Text = presetsController.Current.Title;
             tbThumbnailUrl.Text = presetsController.Current.ThumbnailURL;
@@ -141,12 +141,10 @@ namespace SupremeDiscordMessage
                 dtpTimestamp.Value = presetsController.Current.Timestamp.Value;
             }
             else
+            {
                 dtpTimestamp.Checked = false;
+            }
         }
-
-        readonly PresetsController presetsController = new PresetsController();
-
-        readonly WebhookDescControlller webhookDescController = new WebhookDescControlller();
 
         private void cbPresets_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -155,17 +153,25 @@ namespace SupremeDiscordMessage
 
         private void cbWebhooks_SelectedValueChanged(object sender, EventArgs e)
         {
-            var thisa = Assembly.GetExecutingAssembly();
             webhookDescController.Current = cbWebhooks.SelectedItem as WebhookDesc;
-            Text = $"{webhookDescController.Current.Name} - Supreme Discord Message Sender v{thisa.GetName().Version.ToString(3)} by ASiC";
+            Text =
+                $"{webhookDescController.Current.Name} - Supreme Discord Message Sender v" +
+#if DEBUG
+                "dev"+
+#endif
+                $"{Assembly.GetExecutingAssembly().GetName().Version.ToString(3)} by ASiC";
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (presetsController.Any(s => s.IsChanged))
-                presetsController.SaveToFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS", "presets.json"));
+                presetsController.SaveToFile(Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS",
+                    "presets.json"));
             if (webhookDescController.Any(s => s.IsChanged))
-                webhookDescController.SaveToFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS", "channels.json"));
+                webhookDescController.SaveToFile(
+                    Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ASIC", "SDMS",
+                        "channels.json"));
         }
 
         private void tbSenderName_TextChanged(object sender, EventArgs e)
@@ -251,7 +257,11 @@ namespace SupremeDiscordMessage
         {
             if (presetsController.Current == null)
                 return;
-            var dlg = new frmStringQuery { Text = "Новое имя пресета", tbString = { Text = presetsController.FindNameFor(presetsController.Current.Name) } };
+            var dlg = new frmStringQuery
+            {
+                Text = "Новое имя пресета",
+                tbString = { Text = presetsController.FindNameFor(presetsController.Current.Name) }
+            };
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
             var preset = JsonConvert.DeserializeObject<Preset>(JsonConvert.SerializeObject(presetsController.Current));
@@ -262,7 +272,11 @@ namespace SupremeDiscordMessage
 
         private void bEditName_Click(object sender, EventArgs e)
         {
-            var dlg = new frmStringQuery { Text = "Новое имя пресета", tbString = { Text = presetsController.Current.Name } };
+            var dlg = new frmStringQuery
+            {
+                Text = "Новое имя пресета",
+                tbString = { Text = presetsController.Current.Name }
+            };
             if (dlg.ShowDialog(this) == DialogResult.OK)
                 presetsController.Current.Name = dlg.tbString.Text;
         }
@@ -279,7 +293,11 @@ namespace SupremeDiscordMessage
 
         private void bCreatePreset_Click(object sender, EventArgs e)
         {
-            var dlg = new frmStringQuery { Text = "Имя нового пресета", tbString = { Text = presetsController.FindNameFor("Заготовка") } };
+            var dlg = new frmStringQuery
+            {
+                Text = "Имя нового пресета",
+                tbString = { Text = presetsController.FindNameFor("Заготовка") }
+            };
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
             var cur = new Preset { Name = dlg.tbString.Text };
@@ -289,7 +307,11 @@ namespace SupremeDiscordMessage
 
         private void bCreateChannel_Click(object sender, EventArgs e)
         {
-            var dlg = new frmStringQuery { Text = "Имя нового канала", tbString = { Text = webhookDescController.FindNameFor("#general") } };
+            var dlg = new frmStringQuery
+            {
+                Text = "Имя нового канала",
+                tbString = { Text = webhookDescController.FindNameFor("#general") }
+            };
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
             var cur = new WebhookDesc { Name = dlg.tbString.Text };
@@ -301,10 +323,15 @@ namespace SupremeDiscordMessage
         {
             if (webhookDescController.Current == null)
                 return;
-            var dlg = new frmStringQuery { Text = "Новое имя канала", tbString = { Text = webhookDescController.FindNameFor(webhookDescController.Current.Name) } };
+            var dlg = new frmStringQuery
+            {
+                Text = "Новое имя канала",
+                tbString = { Text = webhookDescController.FindNameFor(webhookDescController.Current.Name) }
+            };
             if (dlg.ShowDialog(this) != DialogResult.OK)
                 return;
-            var webhook = JsonConvert.DeserializeObject<WebhookDesc>(JsonConvert.SerializeObject(webhookDescController.Current));
+            var webhook =
+                JsonConvert.DeserializeObject<WebhookDesc>(JsonConvert.SerializeObject(webhookDescController.Current));
             webhook.Name = dlg.tbString.Text;
             webhookDescController.Add(webhook);
             webhookDescController.Current = webhook;
@@ -312,7 +339,11 @@ namespace SupremeDiscordMessage
 
         private void bEditChannelName_Click(object sender, EventArgs e)
         {
-            var dlg = new frmStringQuery { Text = "Новое имя канала", tbString = { Text = webhookDescController.Current.Name } };
+            var dlg = new frmStringQuery
+            {
+                Text = "Новое имя канала",
+                tbString = { Text = webhookDescController.Current.Name }
+            };
             if (dlg.ShowDialog(this) == DialogResult.OK)
                 webhookDescController.Current.Name = dlg.tbString.Text;
         }
@@ -324,7 +355,8 @@ namespace SupremeDiscordMessage
             var cur = webhookDescController.Current;
             var ind = webhookDescController.IndexOf(cur);
             webhookDescController.Remove(cur);
-            webhookDescController.Current = webhookDescController[Math.Max(0, Math.Min(ind, webhookDescController.Count - 1))];
+            webhookDescController.Current =
+                webhookDescController[Math.Max(0, Math.Min(ind, webhookDescController.Count - 1))];
         }
 
         private void tbFullWebhook_TextChanged_1(object sender, EventArgs e)
@@ -332,54 +364,57 @@ namespace SupremeDiscordMessage
             webhookDescController.Current.WebhookURL = tbFullWebhook.Text;
             if (regexWebhook.Match(tbFullWebhook.Text).Success)
             {
-                tbFullWebhook.ForeColor = Color.Green;
+                tbFullWebhook.ForeColor = System.Drawing.Color.Green;
                 bSend.Enabled = true;
             }
             else
             {
-                tbFullWebhook.ForeColor = Color.Red;
+                tbFullWebhook.ForeColor = System.Drawing.Color.Red;
                 bSend.Enabled = false;
             }
         }
 
         private void bImport_Click(object sender, EventArgs e)
         {
-            var res = JsonConvert.DeserializeObject(tbRAW.Text);
-            JArray arr = res as JArray;
-            JObject jo = res as JObject;
-            if (arr != null)
-                foreach (var jobj in arr)
-                    ImportJObject(jobj);
-            if (jo != null)
-                ImportJObject(jo);
+            try
+            {
+                var res = JsonConvert.DeserializeObject(tbRAW.Text);
+                var arr = res as JArray;
+                var jo = res as JObject;
+                if (arr != null)
+                    foreach (var jobj in arr)
+                        ImportJObject(jobj);
+                if (jo != null)
+                    ImportJObject(jo);
+            }
+            catch (Exception ex)
+            {
+            }
         }
 
         private bool ImportJObject(JToken jobj)
         {
-            try
+            var typeName = jobj.OfType<JProperty>().FirstOrDefault(s => s.Name == "Type");
+            switch (typeName.Value.ToString())
             {
-                var typeName = jobj.OfType<JProperty>().FirstOrDefault(s => s.Name == "Type");
-                switch (typeName.Value.ToString())
-                {
-                    case nameof(WebhookDesc):
-                        webhookDescController.Add(JsonConvert.DeserializeObject<WebhookDesc>(jobj.ToString()));
-                        return true;
-                    case nameof(Preset):
-                        presetsController.Add(JsonConvert.DeserializeObject<Preset>(jobj.ToString()));
-                        return true;
-                }
-            }
-            catch (Exception e)
-            {
-
+                case nameof(WebhookDesc):
+                    webhookDescController.Add(JsonConvert.DeserializeObject<WebhookDesc>(jobj.ToString()));
+                    return true;
+                case nameof(Preset):
+                    presetsController.Add(JsonConvert.DeserializeObject<Preset>(jobj.ToString()));
+                    return true;
             }
             return false;
         }
 
         private void bExportCurrentPreset_Click(object sender, EventArgs e)
         {
-            var res = JsonConvert.SerializeObject(presetsController.Current, Formatting.Indented, 
-                new JsonSerializerSettings {NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
+            var res = JsonConvert.SerializeObject(presetsController.Current, Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new EmptyToNullStringResolver()
+                });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;
@@ -388,7 +423,11 @@ namespace SupremeDiscordMessage
         private void bExportAllPresets_Click(object sender, EventArgs e)
         {
             var res = JsonConvert.SerializeObject(presetsController.Items, Formatting.Indented,
-                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new EmptyToNullStringResolver()
+                });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;
@@ -397,7 +436,11 @@ namespace SupremeDiscordMessage
         private void bExportHook_Click(object sender, EventArgs e)
         {
             var res = JsonConvert.SerializeObject(webhookDescController.Current, Formatting.Indented,
-                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new EmptyToNullStringResolver()
+                });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;
@@ -406,7 +449,11 @@ namespace SupremeDiscordMessage
         private void bExportAllHooks_Click(object sender, EventArgs e)
         {
             var res = JsonConvert.SerializeObject(webhookDescController.Items, Formatting.Indented,
-                new JsonSerializerSettings { NullValueHandling = NullValueHandling.Ignore, ContractResolver = new EmptyToNullStringResolver() });
+                new JsonSerializerSettings
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    ContractResolver = new EmptyToNullStringResolver()
+                });
             if (cbForDiscord.Checked)
                 res = $"```JSON{Environment.NewLine}{res}```";
             tbRAW.Text = res;

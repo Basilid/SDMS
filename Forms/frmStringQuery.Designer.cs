@@ -46,7 +46,7 @@
             this.tbString.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.tbString.Name = "tbString";
             this.tbString.Size = new System.Drawing.Size(318, 27);
-            this.tbString.TabIndex = 0;
+            this.tbString.TabIndex = 1;
             // 
             // ilButtons
             // 
